@@ -19,6 +19,7 @@ public class Character : MonoBehaviour
     private Vector2 defaultColliderSize;
     private Vector2 currentPosition;
     public HPBar hpBar;
+    private int boi =10;
 
     float colliderOffsetY;
 
