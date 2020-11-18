@@ -2,7 +2,7 @@ name: Actions 😎
 
 on:
   pull_request: {}
-  push: { branches: [main] }
+  push: { branches: [dev] }
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_TEST_LICENSE_DECRYPT_KEY }}
