@@ -10,7 +10,7 @@ env:
 jobs:
   build:
     #needs: [checklicense]
-    #if: needs.checklicense.outputs.is_unity_license_set == 'true'    
+    #if: needs.checklicense.outputs.is_unity_license_set == 'true' ''   
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
