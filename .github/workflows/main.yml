@@ -15,22 +15,12 @@ jobs:
         - name: Activate Unity
           run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile .github/Unity_v2019.x.ulf || exit 0
         
-        # Build Windows and OSX
-        #- name: Build Windows Player
-        #  run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath . -buildWindows64Player ./bin-win64/CISample.exe
-        # - name: Build OSX Player
-        #   run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath . -buildOSXUniversalPlayer ./bin-osx/CISample.app   
+        
         - name: Build for Android
           run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath . -buildTarget Android
         
-        - name: Archive Windows Build
+        - name: Archive Android Build
           uses: actions/upload-artifact@v1
           with:
-            name: CISampleWin64Binary
-            path: ./bin-win64
-
-        - name: Archive Mac Build
-          uses: actions/upload-artifact@v1
-          with:
-            name: CISampleOSXBinary
-            path: ./bin-osx
+            name: Build
+            path: build
