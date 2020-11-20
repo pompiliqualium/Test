@@ -3,39 +3,29 @@ on: [push]
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+  UNITY_VERSION: 2019.4.13f1
 
 jobs:
   build:
     name: Build my project ✨
     runs-on: ubuntu-latest
+
     steps:
-      # Checkout
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2.3.3
         with:
           lfs: true
-
-      # Cache
-      - uses: actions/cache@v1.1.0
+      - uses: actions/cache@v2.1.2
         with:
           path: Library
-          key: Library
-
-      
-    # - name: Run tests
-    #    uses: webbertakken/unity-test-runner@v1.3
-    #    with:
-    #      unityVersion: 2019.4.13f1
-
-      # Build
-      - name: Build project
-        uses: webbertakken/unity-builder@v2.0-aplha-5
+          key: Library          
+      - name: Unity - Builder
+        uses: webbertakken/unity-builder@v2.0-alpha-5
         with:
-          unityVersion: 2019.4.13f1
+          unityVersion: ${{ env.UNITY_VERSION }}
           targetPlatform: Android
-
       # Output
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v2.2.0
         with:
           name: Build
           path: build
