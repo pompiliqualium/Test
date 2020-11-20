@@ -20,7 +20,8 @@ jobs:
           path: Library
           key: Library          
       - name: Unity - Builder
-        uses: webbertakken/unity-builder@v2.0-alpha-5
+        uses: webbertakken/unity-builder@v2.0-aplha-5
+
         with:
           unityVersion: ${{ env.UNITY_VERSION }}
           targetPlatform: Android
