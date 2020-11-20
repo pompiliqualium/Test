@@ -23,7 +23,6 @@ jobs:
 
       - name: Unity - Activate
         uses: webbertakken/unity-activate@v1.3
-
         with:
           unityVersion: ${{ env.UNITY_VERSION }}
 
